@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :treatments
   root 'sessions#home'
 
   get '/register' => 'clients#new'
