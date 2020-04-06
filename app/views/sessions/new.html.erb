@@ -1,1 +1,37 @@
 <h1>Creating a new Session</h1>
+
+
+<div class="container mt-5">
+    <div class="card bg-info">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            
+            <h4 class="card-title mt-3 text-center">Login Page</h4>
+            <p>
+                <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+                <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+            </p>
+            <p>OR</p>
+
+            <%= flash[:message] if flash[:message] %>
+       
+            <%= form_for :client do %>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                 </div>
+                <input id="client_email" name="client[email]" class="form-control" placeholder="Email Address" type="email">
+            </div> 
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input id="client_password" name="client[password]" class="form-control" placeholder="password" type="password">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Login </button>
+            </div>
+                <p class="text-center">Dont have an Account? <%= link_to "Register", register_path %></p>                                                                
+            <% end %>
+        </article>
+    </div>
+</div>
