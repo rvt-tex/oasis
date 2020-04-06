@@ -14,6 +14,8 @@ class ClientsController < ApplicationController
     end 
 
     def show 
+        require_login
+        @client = Client.find_by_id(params[:id])
     end 
 
     def client_params
