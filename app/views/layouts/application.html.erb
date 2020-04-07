@@ -47,7 +47,9 @@
             <li class="nav-item">
 						  <a class="nav-link" <%= link_to "all treatments", treatments_path %></a>
 					  </li>
-            
+            <li class="nav-item">
+						  <a class="nav-link" <%= link_to "New Appointment", new_appointment_path %></a>
+					  </li>
             <li class="nav-item">
               <%= form_tag("/logout", method: 'delete') do %>
                 <%= submit_tag "logout" %>
