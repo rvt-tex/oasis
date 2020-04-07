@@ -42,6 +42,13 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
           <ul class="navbar-nav">
             <li class="nav-item">
+						  <a class="nav-link" <%= link_to "new treatment", new_treatment_path %></a>
+					  </li>
+            <li class="nav-item">
+						  <a class="nav-link" <%= link_to "all treatments", treatments_path %></a>
+					  </li>
+            
+            <li class="nav-item">
               <%= form_tag("/logout", method: 'delete') do %>
                 <%= submit_tag "logout" %>
               <% end %>

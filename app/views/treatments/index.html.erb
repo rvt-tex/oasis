@@ -1,0 +1,17 @@
+
+<br><br><br>
+<h1>Viewing all treatments</h1>
+
+
+<% Treatment.all.each do |treatment| %>
+    <ul>
+        <li>
+            <%= treatment.title %>
+        </li>
+    </ul>
+<% end %>
+
+
+
+
+
