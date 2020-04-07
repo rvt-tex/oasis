@@ -6,7 +6,6 @@ class CreateAppointments < ActiveRecord::Migration[6.0]
       t.datetime :desired_date
       t.integer :client_id
       t.integer :treatment_id
-      t.text :review
 
       t.timestamps
     end
