@@ -1,68 +1,76 @@
 <br><br><br>
 
-
-
-
-
- <div class="container mt-3">
-     <div style="background: url(<%= asset_path('blue_bg.jpg') %>)" class="page-holder bg-cover">
-    <article class="card-body mx-auto" style="max-width: 800px;">
-        <h4 class="card-title mt-3 text-center">Request an Appointment</h4>
+    <div class="container mt-3">
+        <div style="background: url(<%= asset_path('blue_bg.jpg') %>)" class="page-holder bg-cover">
+            <article class="card-body mx-auto" style="max-width: 800px;">
+                <h4 class="card-title mt-3 text-center">Request an Appointment</h4>
                 <br>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="well-block">
-                       
-                       <%= form_for :appointment do %>
-                            <!-- Form start -->
-                            <div class="row">
-                            
-                                <!-- Text input-->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="well-block">
+                            <%= form_for @appointment do %>
+                                <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="date">Desired Date</label>
                                         <input id="appointment_desired_date" name="appointment[desired_date]" class="form-control" placeholder="Desired Date" type="datetime">
                                     </div>
                                 </div>
-                                <!-- Select Basic -->
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="time">Desired Time</label>
                                         <input id="appointment_desired_time" name="appointment[desired_time]" class="form-control" placeholder="Desired Time" type="datetime">
                                     </div>
-                                        
-                                    </div>
                                 </div>
-                                <!-- Select Basic -->
+                                </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label" for="treatment">Select one or more Treatments</label>
-                                      <br>
-                                        <%= form_for :appointment do |f| %>
-	                                        <%= f.collection_select :treatment_id, Treatment.all, :id, :title %> 
-                                        <% end %>
+                                    <br>
+                                    <%= form_for :appointment do |f| %>
+	                                    <%= f.collection_select :treatment_id, Treatment.all, :id, :title %> 
+                                    <% end %>
                                     </div>
                                 </div>
-
-                                 <div class="col-md-12">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label" for="specialrequest">Special Request</label>
                                         <input id="specialrequest" name="specialrequest" type="text" placeholder="special request" class="form-control input-md">
                                     </div>
                                 </div>
-                                
-                                
-                                <!-- Button -->
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <button id="singlebutton" name="singlebutton" class="btn btn-default"><%= link_to "Request", appointments_path %></button>
                                     </div>
                                 </div>
-                            </div>
-                        <% end %>
-                        <!-- form end -->
+                                </div>
+                            <% end %>
+                        </div>
                     </div>
                 </div>
+            </article>
+        </div>
+    </div>
 
-                </article>
-                </div>
+<section>
+<%= form_for(@appointment) do |f| %>
+<br><br>
+<%= f.label :desired_time %>
+<%= f.text_field :desired_time, required:true %>
+
+<br><br>
+<%= f.label :desired_date %>
+<%= f.text_field :desired_date, required:true %>
+
+<br><br>
+<%= f.label :treatment %>
+<%= f.collection_select :treatment_id, Treatment.all, :id, :title %> 
+
+<br><br>
+<%= f.label :special_request %>
+<%= f.text_field :special_request %>
+
+<br><br>
+<%= f.submit 'request appointment' %>
+<% end %>
+</section>
