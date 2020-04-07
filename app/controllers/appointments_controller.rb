@@ -5,7 +5,7 @@ class AppointmentsController < ApplicationController
     end 
 
     def create 
-        #binding.pry
+        
         @appointment = current_client.appointments.build(appointment_params)
         binding.pry
         if @appointment.save 
@@ -15,9 +15,12 @@ class AppointmentsController < ApplicationController
         end 
     end 
 
+    def show 
+    end 
+
     private 
 
     def appointment_params
-        params.require('appointment').permit(:specail_request, :desired_time, :desired_date, :client, treatment_ids:[])
+        params.require('appointment').permit(:specail_request, :desired_time, :desired_date, :client, treatment_id:[])
     end
 end

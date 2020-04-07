@@ -21,6 +21,22 @@ class TreatmentsController < ApplicationController
         @treatment = Treatment.all 
     end 
 
+    # def destroy
+    #     if @treatment.destroy
+    #       flash[:success] = 'The content was deleted successfully.'
+    #       redirect_to '/'
+    #     else
+    #       flash[:error] = "The content couldn't be deleted."
+    #       redirect_to clients_path
+    #     end
+    # end
+
+
+
+
+
+
+
     private 
 
     def treatment_params
