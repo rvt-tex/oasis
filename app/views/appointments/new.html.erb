@@ -1,0 +1,68 @@
+<br><br><br>
+
+ <div class="container mt-3">
+     <div style="background: url(<%= asset_path('facial.jpeg') %>)" class="page-holder bg-cover">
+    <article class="card-body mx-auto" style="max-width: 800px;">
+        <h4 class="card-title mt-3 text-center">Request an Appointment</h4>
+                <br>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="well-block">
+                       
+                        <form>
+                            <!-- Form start -->
+                            <div class="row">
+                            
+                                <!-- Text input-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="date">Desired Date</label>
+                                        <input id="date" name="date" type="text" placeholder="Desired Date" class="form-control input-md">
+                                    </div>
+                                </div>
+                                <!-- Select Basic -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="time">Desired Time</label>
+                                        <select id="time" name="time" class="form-control">
+                                            <option value="8:00 to 9:00">8:00 to 9:00</option>
+                                            <option value="9:00 to 10:00">9:00 to 10:00</option>
+                                            <option value="10:00 to 1:00">10:00 to 1:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Select Basic -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label" for="treatment">Select one or more Treatments</label>
+                                        <select id="treatment" name="treatment" class="form-control">
+                                            <option value="Service#1">Service#1</option>
+                                            <option value="Service#2">Service#2</option>
+                                            <option value="Service#3">Service#3</option>
+                                            <option value="Service#4">Service#4</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label" for="specialrequest">Special Request</label>
+                                        <input id="specialrequest" name="specialrequest" type="text" placeholder="special request" class="form-control input-md">
+                                    </div>
+                                </div>
+                                
+                                
+                                <!-- Button -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <button id="singlebutton" name="singlebutton" class="btn btn-default">Request Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- form end -->
+                    </div>
+                </div>
+
+                </article>
+                </div>
