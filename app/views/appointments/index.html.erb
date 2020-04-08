@@ -1,12 +1,21 @@
 <br><br><br>
 
-<h1>Your viewing ur Appointment</h1>
+<h1>Your viewing all your booked Appointments <%= current_client.first_name %></h1>
 
+
+   
 
 <% Appointment.all.each do |appointment| %>
     <ul>
         <li>
-            <%= appointment.client.first_name %>
+            <%= appointment.treatment.title %><br>
+            <%= link_to appointment.client.first_name, client_appointments_path(appointment.client) %><br>
+            <%= link_to appointment.treatment.title, client_appointments_path(appointment.client) %>
+            <%# <%= link_to appointment.treatment.title, client_appointment_path(appointment.client) %> 
+
+
+         
         </li>
     </ul>
 <% end %>
+
