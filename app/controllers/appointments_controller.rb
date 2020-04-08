@@ -57,11 +57,37 @@ class AppointmentsController < ApplicationController
         end 
     end 
 
-   
+    def edit
+      if params[:client_id]
+        client = Client.find_by(id:params[:client_id])
+        if client
+          @appointment = client.appointments.find_by(id:params[:id])
+          redirect_to client_appointments_path(client) if !@appointment
+        else
+          redirect_to clients_path, alert: "Client not found"
+        end
+      else
+        @appointment = Appointment.find(params[:id])
+      end
+    end
 
-    # def show 
-    #     @appointment = Appointment.find(params[:id])
-    # end 
+    def update 
+      @appointment = Appointment.find(params[:id])
+      @appointment.update(appointment_params)
+      if @appointment.save
+        redirect_to @appointment
+      else
+        render :edit
+      end
+    end 
+
+    def destroy
+      @appointment = Appointment.find(params[:id])
+      @appointment.destroy
+      flash[:notice] = "Appointment deleted."
+      redirect_to appointments_path
+    end
+   
 
     private 
 
