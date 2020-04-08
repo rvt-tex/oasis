@@ -1,4 +1,4 @@
-<br><br><br>
+<br><br><br><br><br>
 
 <div class="container">
     <% if logged_in? %>
@@ -7,11 +7,13 @@
     <%end%>
 </div>
 
-<% Appointment.all.each do |appointment| %>
-<div class="container mt-3">
-    <p>
-        <h4><%= appointment.treatment.title %></h4>
-      
-    </p>
-</div>
-<% end %>
+
+
+    <div class="container mt-3">
+        <h1><%= @client.first_name %></h1>
+        <ul>
+            <% @client.appointments.each do |appointment| %>
+            <li><%= link_to appointment.treatment.title, client_appointment_path(@client,appointment) %></li>
+            <% end %>
+        </ul>
+    </div>
