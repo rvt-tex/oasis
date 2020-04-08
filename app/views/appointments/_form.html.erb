@@ -1,0 +1,22 @@
+
+<%= form_for(@appointment) do |f| %>
+<%# #<%= client_id(@appointment) %> 
+<br><br>
+<%= f.label :desired_time %>
+<%= f.text_field :desired_time, required:true %>
+
+<br><br>
+<%= f.label :desired_date %>
+<%= f.text_field :desired_date, required:true %>
+
+<br><br>
+<%= f.label :treatment %>
+<%= f.collection_select :treatment_id, Treatment.all, :id, :title %> 
+
+<br><br>
+<%= f.label :special_request %>
+<%= f.text_field :special_request %>
+
+<br><br>
+<%= f.submit 'request appointment' %>
+<% end %>
