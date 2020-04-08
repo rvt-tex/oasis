@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
- 
   root 'sessions#home'
 
   get '/register' => 'clients#new'
@@ -13,7 +11,6 @@ Rails.application.routes.draw do
 
   resources :treatments
 
-
   resources :clients do 
     resources :appointments, only: [:show, :index]
   end 
@@ -23,9 +20,7 @@ Rails.application.routes.draw do
   # resources :clients, only: [:show] do 
   #   resources :appointments, only: [:show, :index]
   # end 
-  
   # resources :appointments, only: [:index, :show, :new, :create, :edit, :update]
-  
   # root 'appointments#index'
   
   
