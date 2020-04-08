@@ -2,7 +2,7 @@
 <br><br><br>
 <h1>Appointments show page (details)</h1>
 
- <div class="container mt-3">
+<div class="container mt-3">
     <p>
         <h4><%= @appointment.treatment.title %></h4>
         <h5><%= @appointment.special_request %></h5>
@@ -11,4 +11,11 @@
     </p>
 </div>
 
-    
+<div class="container mt-3">
+    <% if @appointment.client == current_client %>
+        <h6>
+        <%= link_to "Edit Appointment", edit_appointment_path(@appointment)%> |
+        <%= link_to "Delete Appointment", @appointment, :method => "delete" %>
+        </h6>
+    <% end %>
+</div>
