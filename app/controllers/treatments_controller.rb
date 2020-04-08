@@ -1,6 +1,7 @@
 class TreatmentsController < ApplicationController
 
     def index 
+        @treatment = Treatment.all
     end 
 
     def new 
@@ -18,7 +19,8 @@ class TreatmentsController < ApplicationController
     end 
 
     def show
-        @treatment = Treatment.all 
+        @treatment = Treatment.find(params[:id])
+        # @treatment = Treatment.all 
     end 
 
     # def destroy
