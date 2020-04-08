@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
-  resources :treatments
+  resources :treatments, only: [:index, :show]
 
   resources :clients do 
     resources :appointments, only: [:show, :index]
