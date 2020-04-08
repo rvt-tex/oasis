@@ -3,5 +3,15 @@
 <div class="container">
     <% if logged_in? %>
         <h6>You are logged in, <%= current_client.first_name %></h6>
+        <p><h6>and currently viewing all your booked Appointments</h6></p>
     <%end%>
 </div>
+
+<% Appointment.all.each do |appointment| %>
+<div class="container mt-3">
+    <p>
+        <h4><%= appointment.treatment.title %></h4>
+      
+    </p>
+</div>
+<% end %>
