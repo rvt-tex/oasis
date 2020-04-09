@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
     helper_method :is_logged_in?
     helper_method :logged_in?
-    helper_method :current_client 
+    helper_method :current_client, #:current_client_appointments
  
    # def current_client
    #     @current_client ||= Client.find_by_id(session[:client_id]) if session[:client_id]
@@ -30,4 +30,11 @@ class ApplicationController < ActionController::Base
    def logged_in?
        !current_client.nil?  
    end
+
+#    def current_client_appointments
+#         if params[:client_id]
+#         client = Client.find_by(id:params[:client_id])
+#           @appointments = client.appointments
+#         end 
+#    end 
 end

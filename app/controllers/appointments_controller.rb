@@ -1,4 +1,7 @@
 class AppointmentsController < ApplicationController
+  before_action :redirect_if_not_logged_in
+  
+
 
     def index
         if params[:client_id]
@@ -34,7 +37,6 @@ class AppointmentsController < ApplicationController
     def create 
         #binding.pry 
         @appointment = current_client.appointments.build(appointment_params)
-       
         if @appointment.save 
             redirect_to @appointment
         else 

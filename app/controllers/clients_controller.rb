@@ -1,4 +1,7 @@
 class ClientsController < ApplicationController
+    #before_action :current_client_appointments
+    #before_filter :authenticate, :only => [:new, :create, :show]
+
 
     def index
         @clients = Client.all
