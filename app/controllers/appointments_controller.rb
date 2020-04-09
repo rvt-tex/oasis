@@ -26,21 +26,6 @@ class AppointmentsController < ApplicationController
           @appointment = Appointment.find(params[:id])
         end
     end
-    # def index 
-    #     # if params[:client_id]
-    #     #     @appointments = Client.find(params[:client_id]).appointments
-    #     # else 
-    #     #     @appointments = Appointment.all 
-    #     # end 
-
-
-    #     if params[:client_id] && @client = Client.find_by_id(params[:client_id])
-    #         @appointments = @client.appointments
-    #     else
-    #         @error = "That client doesn't exist" if params[:client_id]
-    #         @appointments = Appointment.all
-    #     end
-    # end 
 
     def new 
         @appointment = Appointment.new 

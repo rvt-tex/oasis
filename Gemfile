@@ -33,6 +33,7 @@ gem 'bootstrap', '~> 4.4', '>= 4.4.1'
 gem 'nokogiri'
 gem 'jquery-rails'
 gem 'pry'
+gem 'simple_form'
 #gem 'sprockets-rails'
 
 # Use Active Storage variant
@@ -57,6 +58,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'popper_js'
+  gem 'better_errors', '~> 2.6'
+  gem "binding_of_caller"
 end
 
 group :test do
