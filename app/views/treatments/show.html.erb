@@ -2,13 +2,13 @@
 <br><br><br>
 <h1>viewing details about a specific Treatment</h1>
 
-<ul>
-    
-    <li>
-        <%= @treatment.title %> <br>
-        <%= @treatment.price %> |
-        <%= @treatment.duration %> <br>
-        <%= @treatment.description %>
-    </li><br>
-</ul>
-
+    <div class="container">
+        <div class="row">
+            <ul>
+                <%= @treatment.title %> <br>
+                <%= @treatment.price %> |
+                <%= @treatment.duration %> <br>
+                <%= @treatment.description %>
+            </ul>
+        </div>
+    </div>
