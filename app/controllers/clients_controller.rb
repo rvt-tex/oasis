@@ -1,6 +1,5 @@
 class ClientsController < ApplicationController
-    #before_action :current_client_appointments
-    #before_filter :authenticate, :only => [:new, :create, :show]
+  
 
 
     def index
@@ -22,7 +21,7 @@ class ClientsController < ApplicationController
     end 
 
     def show 
-        require_login
+        #require_login
         @client = Client.find_by_id(params[:id])
     end 
 

@@ -6,14 +6,13 @@
                 <h4 class="card-title mt-3 text-center">Request Appointment</h4>
                     <%= simple_form_for(@appointment) do |f| %>
             <br><br>
-                <%= f.label :desired_time %>
-                <%= f.time_field :desired_time, required:true %>
-             
-
-            <br><br>
                 <%= f.label :desired_date %>
                 <%= f.date_field :desired_date, required:true %>
-
+            
+            <br><br>
+                <%= f.label :desired_time %>
+                <%= f.time_field :desired_time, required:true %>
+        
             <br><br>
                 <%= f.label :treatment %>
                 <%= f.collection_select :treatment_id, Treatment.all, :id, :title %> 

@@ -1,9 +1,11 @@
 class AppointmentsController < ApplicationController
-  before_action :redirect_if_not_logged_in
+  #before_action :redirect_if_not_logged_in
+  before_action :login_required
   
 
 
     def index
+      
         if params[:client_id]
           client = Client.find_by(id:params[:client_id])
           if client

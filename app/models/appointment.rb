@@ -8,5 +8,5 @@ class Appointment < ApplicationRecord
     # scope :alpha, -> { order(:appointments) }
     # scope :most_booked_treatments, -> {left_joins(:treatments).group('appointments.id').order('count(treatments.appointment_id) desc')}
     
-    
+    #accepts_nested_attributes_for 
 end

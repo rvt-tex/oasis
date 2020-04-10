@@ -1,7 +1,7 @@
 <br><br><br><br><br>
 
 <div class="container">
-    <% if logged_in? %>
+    <% if is_logged_in? %>
         <h6>You are logged in, <%= current_client.first_name %></h6>
         <p><h6>and currently viewing all your booked Appointments</h6></p>
     <%end%>
