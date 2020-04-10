@@ -1,6 +1,6 @@
 
 <%= simple_form_for(@appointment) do |f| %>
-<%# #<%= client_id(@appointment) %> 
+<label><%= last_updated @appointment %></label><br>
 <br><br>
 <%= f.label :desired_date %>
 <%= f.text_field :desired_date, required:true %>

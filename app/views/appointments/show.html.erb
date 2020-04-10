@@ -9,8 +9,8 @@
                 <h4><%= @appointment.treatment.title %></h4>
                 <h5><%= @appointment.desired_date.strftime("on %b/%d/%Y") %></h5>
                 <h5><%= @appointment.desired_time.strftime("at %I:%M%p") %> </h5>
-                <h5><%= @appointment.special_request %></h5>
-                
+                <h5><%= @appointment.special_request %></h5> <br>
+                <p><%= last_updated @appointment %></p>
                 <br><br>
                 <h5 class="card-title mt-3 text-center">We are looking forward to servicing you!!!</h5>
             </ul>   

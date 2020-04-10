@@ -1,13 +1,10 @@
 class ApplicationController < ActionController::Base
 
-    before_action :current_client, except:[:index]
-    
-
 
 
     protect_from_forgery
 
-    helper_method :current_client, :is_logged_in?, :client_name, :redirect_if_not_logged_in, :login_required, :client_allowed
+    helper_method :current_client, :is_logged_in?, :client_name, :redirect_if_not_logged_in, :login_required
     
     def current_client
        @current_client ||= Client.find_by_id(session[:client_id]) if session[:client_id]
@@ -35,13 +32,6 @@ class ApplicationController < ActionController::Base
     def redirect_if_not_logged_in
         redirect_to '/' if !is_logged_in? 
     end 
-
-    # def client_allowed
-    #     @current_client && (current_client.id == @appointment.client_id)
-    # end
-    # def owner?(appointment)
-    #     Appointment.client == current_client
-    # end
 
     def client_name
         current_client.fitst_name

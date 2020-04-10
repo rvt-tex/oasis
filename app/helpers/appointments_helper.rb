@@ -8,4 +8,8 @@ module AppointmentsHelper
             content_tag(:h4, "#{client} #{pluralize(@client.appointments.count, 'booked Appointments')}:")
         end
     end
+
+    def last_updated(appointment)
+        appointment.updated_at.strftime("Last updated %A, %b %e, at %l:%M %p")
+    end
 end

@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
 
 
     def index
-        @clients = Client.all
+       @clients = Client.all
     end
 
     def new 
@@ -21,8 +21,10 @@ class ClientsController < ApplicationController
     end 
 
     def show 
-        #require_login
         @client = Client.find_by_id(params[:id])
+        if current_client != @client
+            redirect_to '/'
+        end 
     end 
 
     def client_params

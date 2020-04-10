@@ -1,14 +1,13 @@
 class AppointmentsController < ApplicationController
-  #before_action :redirect_if_not_logged_in
   before_action :login_required
   
 
 
     def index
-      
         if params[:client_id]
           client = Client.find_by(id:params[:client_id])
-          if current_client
+          if current_client == client
+            #binding.pry
             @appointments = client.appointments
           else
             flash[:alert] = "Client not found."
@@ -69,15 +68,25 @@ class AppointmentsController < ApplicationController
         render :edit
       end
     end 
-
-    def destroy
-      @appointment = Appointment.find(params[:id])
-      @appointment.destroy
-      flash[:notice] = "Appointment deleted."
-      redirect_to appointments_path
+  
+    def destroy 
+      @appointment = Appointment.find_by_id(params[:id])
+      if is_logged_in? 
+        @appointment = current_client.appointments.find_by_id(params[:id])
+        if @appointment
+          @appointment.destroy
+          flash[:message] = "Your appointment was deleted."
+          redirect_to client_appointments_path(current_client)  
+        else
+          flash[:message] = "Unable to delete this appointment since it doesn't belong to you."
+          redirect_to "/"
+        end
+      else
+        flash[:message] = "You need to be logged in first to access this page."
+        redirect_to "/login"
+      end
     end
-   
-
+    
     private 
 
     def appointment_params

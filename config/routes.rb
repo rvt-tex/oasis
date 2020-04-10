@@ -16,11 +16,11 @@ Rails.application.routes.draw do
     resources :appointments, only: [:index, :show]
   end 
 
-  resources :clients do 
+  resources :clients do
     resources :appointments
   end 
 
-  resources :appointments
+  resources :appointments, except: [:index]
    
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
