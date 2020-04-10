@@ -1,40 +1,41 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :is_logged_in?
-    helper_method :logged_in?
-    helper_method :current_client, #:current_client_appointments
- 
-   # def current_client
-   #     @current_client ||= Client.find_by_id(session[:client_id]) if session[:client_id]
-   # end
+    protect_from_forgery
 
-   def current_client
-       Client.find_by(id: session[:client_id])
-   end
+    helper_method :current_client, :is_logged_in?, :client_name, :redirect_if_not_logged_in, :login_required, :owner?
+    
+    def current_client
+       @current_client ||= Client.find_by_id(session[:client_id]) if session[:client_id]
+    end
 
-   def is_logged_in?
-       !!session[:client_id]
-   end
+    def session_already_set
+        redirect_to appointments_path if is_logged_in?
+    end
 
-   def require_login
-       unless is_logged_in?
-         flash[:message] = "Login Required."
-         redirect_to '/' 
-       end
-   end
+    def is_logged_in?
+        !!session[:client_id]
+    end
+
+    def is_logged_in?
+        !!current_client
+    end
+
+    def login_required
+        unless is_logged_in?
+            flash[:error] = "You must be logged inorder to make an appointment"
+            redirect_to login_path
+        end
+    end
    
-     def redirect_if_not_logged_in
-         redirect_to '/' if !logged_in? 
-     end 
+    def redirect_if_not_logged_in
+        redirect_to '/' if !is_logged_in? 
+    end 
 
-   def logged_in?
-       !current_client.nil?  
-   end
+    # def owner?(appointment)
+    #     Appointment.client == current_client
+    # end
 
-#    def current_client_appointments
-#         if params[:client_id]
-#         client = Client.find_by(id:params[:client_id])
-#           @appointments = client.appointments
-#         end 
-#    end 
+    def client_name
+        current_client.fitst_name
+    end
 end
