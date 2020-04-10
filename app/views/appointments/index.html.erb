@@ -1,6 +1,6 @@
 <br><br><br>
 
-    
+    <% if current_client %>
     <div class="container mt-5">
         <div style="background: url(<%= asset_path('blue_bg.jpg') %>)" class="page-holder bg-cover">
             <article class="card-body mx-auto" style="max-width: 400px max-height: 800px;">
@@ -26,3 +26,4 @@
         </div>
     </div>
 
+    <% end %>

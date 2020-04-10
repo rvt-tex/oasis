@@ -8,7 +8,7 @@ class AppointmentsController < ApplicationController
       
         if params[:client_id]
           client = Client.find_by(id:params[:client_id])
-          if client
+          if current_client
             @appointments = client.appointments
           else
             flash[:alert] = "Client not found."

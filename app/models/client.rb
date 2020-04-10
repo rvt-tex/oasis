@@ -10,9 +10,9 @@ class Client < ApplicationRecord
     validates_numericality_of :phone, on: :create
     validates :email, format: {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}, uniqueness: {message:"already belongs to an existing account"}
     validates :password, presence: true, length: { in: 6..50 }, format: { without: /\s/ }, :on => :create
+    
    
-    
-    
+
 
     # def self.google(auth)
     # #find_or_create a client using the attributes auth
