@@ -1,19 +1,23 @@
 <br><br><br><br><br>
 
-<div class="container">
-    <% if is_logged_in? %>
-        <h6>You are logged in, <%= current_client.first_name %></h6>
-        <p><h6>and currently viewing all your booked Appointments</h6></p>
-    <%end%>
-</div>
-
-
-
-    <div class="container mt-3">
-        <h1><%= @client.first_name %></h1>
-        <ul>
-            <% @client.appointments.each do |appointment| %>
-            <li><%= link_to appointment.treatment.title, client_appointment_path(@client,appointment) %></li>
-            <% end %>
-        </ul>
+    <div class="container mt-5">
+        <div style="background: url(<%= asset_path('blue_bg.jpg') %>)" class="page-holder bg-cover">
+            <article class="card-body mx-auto" style="max-width: 400px max-height: 800px;">
+                <h2 class="card-title mt-3 text-center">Upcoming Appointments for <%= current_client.first_name %></h2>
+                    <ul>
+                        <% @client.appointments.each do |appointment| %>
+                        <li><%= link_to appointment.treatment.title, client_appointment_path(@client,appointment) %></li>
+                        <% end %>
+                    </ul>
+                    <br><br>
+                    <h5 class="card-title mt-3 text-center">We are looking forward to servicing you!!!</h5>
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <a class="btn btn-secondary" <%= link_to "Book a New Appointment »", new_appointment_path %></a>
+                            </div>
+                        </div>
+                    </div>
+            </article>
+        </div>
     </div>
