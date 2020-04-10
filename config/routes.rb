@@ -1,32 +1,26 @@
 Rails.application.routes.draw do
 
-  root 'sessions#home'
+  get '/', to: 'sessions#home', as: 'root', controller: 'sessions'
 
-  get '/register' => 'clients#new'
-  post 'register' => 'clients#create'
+  get '/register', to: 'clients#new', as: 'register'
+  resources :clients, only: [:create], path: 'register'
+  resources :clients, only: [:show, :index]
+  
+  get 'login', to: 'sessions#new', as: 'login'
+  post 'login', to: 'sessions#create' 
+  delete 'logout', to: 'sessions#destroy', as: 'logout'
 
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy'
+  get '/auth/:provider/callback', to: 'sessions#google'
 
-
-   #omniauth callback route
-  get '/auth/:provider/callback' => 'sessions#google'
-
-  resources :treatments, only: [:index, :show]
+  resources :treatments, only: [:index, :show] do 
+    resources :appointments, only: [:index, :show]
+  end 
 
   resources :clients do 
-    resources :appointments, only: [:show, :index]
+    resources :appointments
   end 
 
   resources :appointments
-  
-  # resources :clients, only: [:show] do 
-  #   resources :appointments, only: [:show, :index]
-  # end 
-  # resources :appointments, only: [:index, :show, :new, :create, :edit, :update]
-  # root 'appointments#index'
-  
-  
+   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
