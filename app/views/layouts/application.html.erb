@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Oasis</title>
+    <title><%= yield :title %> | @Oasis</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -62,19 +62,17 @@
       <br><br><br>
 
 
+
+
+  
+
+
     <%= yield %>
 
-      <footer>
+        <%= content_tag :footer, class:footer_class do %>
+          <%= render 'layouts/footer' %>
+        <% end %>
         
-        
-      <div class="footer-copyright py-5 w-100">
-        <div class="container text-center">
-          Oasis © <%=Date.today.year%>
-        </div>
-      </div>
-
-      </footer>
-  
 
   </body>
 </html>
