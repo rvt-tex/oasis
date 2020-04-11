@@ -1,14 +1,13 @@
 
-<h1>Write a Review</h1>
+     
+     <div class="container mt-5">
+          <div style="background: url(<%= asset_path('blue_bg.jpg') %>)" class="page-holder bg-cover">
+               <article class="card-body mx-auto" style="max-width: 400px;">
+                    <h4 class="card-title mt-3 text-center">Write a Review</h4>
+     
+                    <%= render 'form' %>
 
-<%= form_for(@review) do |f| %>
-
-<p>
-<%= f.label :content %>
-<%= f.text_field :content, required:true %>
-</p>
-<%= f.hidden_field(:client_id)%>
-<p>
-<%= f.submit 'Write a Review' %>
-<% end %>
-</p>
+               
+               </article>
+          </div>
+     </div>
