@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_07_002702) do
+ActiveRecord::Schema.define(version: 2020_04_11_035922) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "special_request"
@@ -28,6 +28,12 @@ ActiveRecord::Schema.define(version: 2020_04_07_002702) do
     t.integer "phone"
     t.string "email"
     t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
