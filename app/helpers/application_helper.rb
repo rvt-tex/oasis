@@ -2,7 +2,7 @@ module ApplicationHelper
 
     
     def footer_class
-        'page-footer row bg-light'
+        'page-footer row bg-dark text-white'
     end
 
     def main_col_class(text)

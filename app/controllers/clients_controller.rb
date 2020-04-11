@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
-  
-
+    
+    before_action :session_already_set, only: %i[new create]
 
     def index
        @clients = Client.all

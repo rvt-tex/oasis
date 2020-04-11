@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
     protect_from_forgery
 
-    helper_method :current_client, :is_logged_in?, :client_name, :redirect_if_not_logged_in, :login_required
+    helper_method :current_client, :is_logged_in?, :client_name, :redirect_if_not_logged_in, :login_required, :session_already_set
     
     def current_client
        @current_client ||= Client.find_by_id(session[:client_id]) if session[:client_id]
