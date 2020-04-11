@@ -10,6 +10,14 @@ module AppointmentsHelper
     end
 
     def last_updated(appointment)
-        appointment.updated_at.strftime("Last updated %A, %b %e, at %l:%M %p")
+        appointment.updated_at.strftime("Last updated on %A, %B %d, %Y, at %I:%M %p")
+    end
+
+    def display_date(d)
+        d.strftime('%A, %B %d, %Y')
+    end
+    
+    def display_time(d)
+        d.strftime('%I:%M %p')
     end
 end
