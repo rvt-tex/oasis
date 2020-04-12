@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :login_required
+  #before_action :find_appointment, only: [:show, :edit, :update, :destroy]
   
 
 
@@ -92,4 +93,8 @@ class AppointmentsController < ApplicationController
     def appointment_params
         params.require('appointment').permit(:special_request, :desired_time, :desired_date, :client_id, :treatment_id)
     end
+
+    # def find_appointment
+
+    # end 
 end

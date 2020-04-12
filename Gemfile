@@ -34,6 +34,7 @@ gem 'nokogiri'
 gem 'jquery-rails'
 gem 'pry'
 gem 'simple_form'
+gem 'jquery-star-rating-rails', '~> 4.0', '>= 4.0.4'
 #gem 'sprockets-rails'
 
 # Use Active Storage variant

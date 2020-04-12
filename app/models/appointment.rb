@@ -2,6 +2,7 @@ class Appointment < ApplicationRecord
     
     belongs_to :client
     belongs_to :treatment
+    has_many :reviews
 
     validates :treatment, :desired_time, :desired_date, presence: true
 
