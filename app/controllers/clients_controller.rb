@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
     
+    before_action :is_logged_in?
     before_action :session_already_set, only: %i[new create]
 
     def index
@@ -14,6 +15,7 @@ class ClientsController < ApplicationController
         @client = Client.new(client_params)
         if @client.save 
             session[:client_id] = @client.id
+            flash[:success] = 'Your registration was successful.'
             redirect_to @client
         else 
             render :new 
@@ -26,6 +28,8 @@ class ClientsController < ApplicationController
             redirect_to '/'
         end 
     end 
+
+    private
 
     def client_params
         params.require('client').permit(:first_name, :last_name, :password,:phone,:email)

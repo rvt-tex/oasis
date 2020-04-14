@@ -1,60 +1,55 @@
 class AppointmentsController < ApplicationController
-  before_action :login_required
-  #before_action :find_appointment, only: [:show, :edit, :update, :destroy]
+    before_action :login_required
   
-
-
     def index
-        if params[:client_id]
-          client = Client.find_by(id:params[:client_id])
-          if current_client == client
-            #binding.pry
-            @appointments = client.appointments.alpha
-          else
-            flash[:alert] = "Client not found."
-            redirect_to clients_path
-          end
-        else
-          @appointments = Appointment.all
-        end
+      if params[:client_id]
+        client = Client.find_by(id:params[:client_id])
+      if current_client == client
+        @appointments = client.appointments.alpha
+      else
+        flash[:alert] = "Client not found."
+        redirect_to clients_path
+      end
+      else
+        @appointments = Appointment.all
+      end
     end
 
     def show
-        if params[:client_id]
-          client = Client.find_by(id:params[:client_id])
-          @appointment = client.appointments.find_by(id:params[:id])
-          if !@appointment
-            flash[:alert] = "Appointment not found."
-            redirect_to client_appointments_path(client)
-          end
-        else
-          @appointment = Appointment.find(params[:id])
-        end
+      if params[:client_id]
+        client = Client.find_by(id:params[:client_id])
+        @appointment = client.appointments.find_by(id:params[:id])
+      if !@appointment
+        flash[:alert] = "Appointment not found."
+        redirect_to client_appointments_path(client)
+      end
+      else
+        @appointment = Appointment.find(params[:id])
+      end
     end
 
     def new 
-        @appointment = Appointment.new 
+      @appointment = Appointment.new 
     end 
 
     def create 
-        #binding.pry 
-        @appointment = current_client.appointments.build(appointment_params)
-        if @appointment.save 
-            redirect_to @appointment
-        else 
-            render :new 
-        end 
+      @appointment = current_client.appointments.build(appointment_params)
+      if @appointment.save 
+        redirect_to @appointment
+      else 
+        render :new 
+      end 
     end 
 
     def edit
       if params[:client_id]
         client = Client.find_by(id:params[:client_id])
-        if client
-          @appointment = client.appointments.find_by(id:params[:id])
-          redirect_to client_appointments_path(client) if !@appointment
-        else
-          redirect_to clients_path, alert: "Client not found"
-        end
+      if client
+        @appointment = client.appointments.find_by(id:params[:id])
+        redirect_to client_appointments_path(client) if !@appointment
+      else
+        redirect_to clients_path, alert: "Client not found"
+      end
       else
         @appointment = Appointment.find(params[:id])
       end
@@ -93,8 +88,4 @@ class AppointmentsController < ApplicationController
     def appointment_params
         params.require('appointment').permit(:special_request, :desired_time, :desired_date, :client_id, :treatment_id)
     end
-
-    # def find_appointment
-
-    # end 
 end

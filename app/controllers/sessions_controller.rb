@@ -18,8 +18,6 @@ class SessionsController < ApplicationController
     end 
 
     def google
-        #binding.pry
-        #find_or_create a client using the attributes auth
         @client = Client.find_or_create_by(email: auth["info"]["email"]) do |client|
         client.first_name = auth["info"]["first_name"]
         client.last_name = auth["info"]["last_name"]

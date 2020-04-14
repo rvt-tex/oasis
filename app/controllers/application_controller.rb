@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
 
-
-
     protect_from_forgery
 
     helper_method :current_client, :is_logged_in?, :client_name, :redirect_if_not_logged_in, :login_required, :session_already_set
@@ -16,10 +14,6 @@ class ApplicationController < ActionController::Base
 
     def is_logged_in?
         !!session[:client_id]
-    end
-
-    def is_logged_in?
-        !!current_client
     end
 
     def login_required
