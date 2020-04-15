@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_07_002702) do
+ActiveRecord::Schema.define(version: 2020_04_15_025339) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "special_request"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 2020_04_07_002702) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "content"
+    t.integer "client_id"
+    t.integer "appointment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["appointment_id"], name: "index_reviews_on_appointment_id"
+    t.index ["client_id"], name: "index_reviews_on_client_id"
+  end
+
   create_table "treatments", force: :cascade do |t|
     t.string "title"
     t.string "price"
@@ -41,4 +52,6 @@ ActiveRecord::Schema.define(version: 2020_04_07_002702) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "reviews", "appointments"
+  add_foreign_key "reviews", "clients"
 end
