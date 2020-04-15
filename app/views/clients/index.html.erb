@@ -1,6 +1,11 @@
 <br><br><br><br><br><br>
 
-<h1>Clients</h1>
+<% title "Clients" %>
+
+    <%= content_tag :div, class:"col-md-9" do %>
+        <%= render 'layouts/flash_message' %>
+    <% end %>
+
 <ul>
     <% @clients.each do |client| %>
     <li><%= link_to client.first_name, client_appointments_path(client) %></li>

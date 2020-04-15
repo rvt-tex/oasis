@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end 
 
   resources :clients do
-    resources :appointments
+    resources :appointments #(shallow: true)
   end 
 
   resources :appointments

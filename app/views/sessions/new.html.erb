@@ -1,3 +1,9 @@
+<br><br><br>
+
+    <%= content_tag :div, class:"col-lg-5 col-xl-6" do %>
+        <%= flash[:message]  if flash[:message]%>
+    <% end %>
+
 
 
 <div class="container mt-5">
@@ -10,7 +16,7 @@
             </p>
             <p>OR</p>
 
-            <%= flash[:message] if flash[:message] %>
+          
        
             <%= form_for :client do %>
             <div class="form-group input-group">

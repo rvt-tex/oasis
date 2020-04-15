@@ -15,9 +15,9 @@ class ClientsController < ApplicationController
         @client = Client.new(client_params)
         if @client.save 
             session[:client_id] = @client.id
-            flash[:success] = 'Your registration was successful.'
             redirect_to @client
         else 
+            flash[:message] = "Invalid registration info, please try again"
             render :new 
         end 
     end 

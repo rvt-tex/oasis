@@ -10,8 +10,8 @@ class AppointmentsController < ApplicationController
         flash[:alert] = "Client not found."
         redirect_to clients_path
       end
-      else
-        @appointments = Appointment.all
+      # else
+      #   @appointments = Appointment.all
       end
     end
 

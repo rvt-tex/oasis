@@ -1,6 +1,13 @@
 
 <br><br><br><br>
 
-<h1>Editing 
-<%= @appointment.treatment.title %></h1>
-<%= render partial: "form" %>
+    <div class="container mt-5">
+        <div style="background: url(<%= asset_path('blue_bg.jpg') %>)" class="page-holder bg-cover">
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                <h3 class="card-title mt-3 text-center">Edit Appointment Details</h3>
+                
+                    <%= render partial: "form" %>
+
+            </article>
+        </div>
+    </div>

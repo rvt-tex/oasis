@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
             session[:client_id] = @client.id
             redirect_to  @client
         else 
-            flash[:message] = "incorrect login info, please try again"
+            flash[:message] = "Incorrect login info, please try again"
             redirect_to "/login"
         end 
     end 

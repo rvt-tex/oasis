@@ -1,4 +1,4 @@
-
+<%= render partial: "layouts/errors", locals: {object: @client} %>
 
 <div class="container mt-5">
     <div class="card bg-info">
@@ -6,6 +6,7 @@
             <h4 class="card-title mt-3 text-center">Register</h4>
             <p class="text-center">Get started with your account</p>
         
+    
             <%= form_for :client do %>
             <div class="form-group input-group">
                 <div class="input-group-prepend">

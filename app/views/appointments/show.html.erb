@@ -18,7 +18,7 @@
     </div>
 </div>
 
-
+<%= render partial: "layouts/errors", locals: {object: @appointment} %>
 
 <div class="container mt-3">
     <% if @appointment.client == current_client %>

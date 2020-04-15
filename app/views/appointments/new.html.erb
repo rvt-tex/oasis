@@ -1,10 +1,13 @@
 <br><br><br>
 
+        <%= render partial: "layouts/errors", locals: {object: @appointment} %>
+
     <div class="container mt-5">
         <div style="background: url(<%= asset_path('blue_bg.jpg') %>)" class="page-holder bg-cover">
             <article class="card-body mx-auto" style="max-width: 400px;">
                 <h4 class="card-title mt-3 text-center">Request Appointment</h4>
-                    <%= simple_form_for(@appointment) do |f| %>
+
+                <%= simple_form_for(@appointment) do |f| %>
             <br><br>
                 <%= f.label :desired_date %>
                 <%= f.date_field :desired_date, required:true %>
