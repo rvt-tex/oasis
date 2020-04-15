@@ -7,8 +7,8 @@
   <%= f.label :appointment %>
   <%= f.collection_select :appointment_id, Appointment.all, :id, :treatment %>
 
-  <%= f.label :content %>
-  <%= f.text_field :content %>
+  <%= f.label :comment %>
+  <%= f.text_field :comment %>
   
   <%= f.label :rating %>
   <%= f.text_field :rating %>

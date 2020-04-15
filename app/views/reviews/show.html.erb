@@ -1,4 +1,4 @@
-<h2><%= @review.content%> - <%= @review.client.client_name%></h2>
+<h2><%= @review.comment%> - <%= @review.client.client_name%></h2>
 
 <% if @review.client == current_client %>
   <%= link_to "Edit Review", edit_review_path(@review)%>
