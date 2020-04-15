@@ -1,0 +1,36 @@
+
+<% if @review.appointment %>
+<h1>New Review for <%= @review.appointment.treatment %>!</h1>
+<% else %>
+<h1>New Review!</h1>
+<% end %>
+
+
+
+<%= render partial: "layouts/errors", locals: {object: @review} %>
+
+<%= form_for([@review.appointment,@review]) do |f|%>
+
+ <% if !@review.appointment %>
+  <%= f.label :appointment %>
+  <%= f.collection_select :appointment_id, Appointment.all, :id, :treatment %>
+<% else %>
+    <%= f.hidden_field :appointment_id %>
+<% end %>
+
+<br><br>
+
+<%= f.label :rating %> 
+<%= f.number_field :rating %>
+
+<br><br>
+
+<%= f.label :content %>
+  <%= f.text_field :content %>
+
+<br><br>
+  <%= f.submit %>
+
+<% end %>				
+					
+

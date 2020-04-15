@@ -1,0 +1,17 @@
+<% if @appointment %>
+  <h1>Reviews for <%= @appointment.treatment%></h1>
+<% else %>
+  <h1>All Reviews</h1>
+<% end %>
+
+<ul>
+<% @reviews.each do |c|%>
+
+    <strong><%= link_to c.appointment.treatment, appointment_path(c.appointment_id) %></strong></li>
+
+    <li>Review By: <%= c.client.first_name%><br>
+    "<%= c.content%>" <br>
+    "<%= c.rating %> star rating
+    <br>
+    
+<% end %>	

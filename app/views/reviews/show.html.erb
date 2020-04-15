@@ -1,0 +1,8 @@
+<h2><%= @review.content%> - <%= @review.client.client_name%></h2>
+
+<% if @review.client == current_client %>
+  <%= link_to "Edit Review", edit_review_path(@review)%>
+<% end %>
+
+<h4>View the Appointment here: <%= link_to @review.appointment.treatment, appointment_path(@review.appointment_id) %></h4>
+														
