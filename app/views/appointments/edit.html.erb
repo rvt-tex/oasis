@@ -6,6 +6,7 @@
             <article class="card-body mx-auto" style="max-width: 400px;">
                 <h3 class="card-title mt-3 text-center">Edit Appointment Details</h3>
                 
+                    <%= render partial: "layouts/errors", locals: {object: @appointment} %>
                     <%= render partial: "form" %>
 
             </article>

@@ -7,7 +7,7 @@ show page
 
 <% if @review.client == current_client %>
   <%= link_to "Edit Review", edit_review_path(@review)%> |
-  <%= link_to "delete Review", @review, :method => "delete"%>
+  <%= link_to "delete Review", @review, method: :delete, data: { confirm: "Are you sure?" }%>
 <% end %>
 
 

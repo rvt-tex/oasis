@@ -24,7 +24,7 @@
     <% if @appointment.client == current_client %>
         <h6>
         <%= link_to "Edit Appointment", edit_appointment_path(@appointment)%> |
-        <%= link_to "Delete Appointment", @appointment, :method => "delete" %>
+        <%= link_to "Delete Appointment", @appointment, method: :delete, data: { confirm: "Are you sure?" } %>
         </h6>
     <% end %>
 </div>
