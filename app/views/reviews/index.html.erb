@@ -1,5 +1,5 @@
 <% if @appointment %>
-  <h1>Reviews for <%= @appointment.treatment%></h1>
+  <h1>Reviews for <%= @appointment.treatment.title%></h1>
 <% else %>
   <h1>All Reviews</h1>
 <% end %>
@@ -7,11 +7,14 @@
 <ul>
 <% @reviews.each do |c|%>
 
-    <strong><%= link_to c.appointment.treatment, appointment_path(c.appointment_id) %></strong></li>
-
-    <li>Review By: <%= c.client.first_name%><br>
-    "<%= c.comment%>" <br>
-    "<%= c.rating %> star rating
-    <br>
-    
+    <li> <strong><%= c.appointment.treatment.title %></strong><br>
+    Review By: <%= c.client.first_name %><br>
+    "<%= c.comment%>" <br></li>
 <% end %>	
+
+<br><br>
+         
+            <div class="btn btn-light"> 
+             <%= link_to "Write a Review »", new_review_path %>
+          </div>
+          </div>

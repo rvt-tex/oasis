@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2020_04_15_025339) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "rating"
     t.text "comment"
     t.integer "client_id"
     t.integer "appointment_id"

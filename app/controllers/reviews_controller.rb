@@ -15,7 +15,6 @@ class ReviewsController < ApplicationController
     end 
 
     def new 
-        #if it's nested and why find the appointment
        if params[:appointment_id] && @appointment = Appointment.find_by_id(params[:appointment_id])
          @review = @appointment.reviews.build
        else
@@ -34,6 +33,7 @@ class ReviewsController < ApplicationController
    end 
 
    def show 
+    # @review = Review.find(params[:id])
    end 
    
    def edit
@@ -47,10 +47,29 @@ class ReviewsController < ApplicationController
         end
     end
    
+
+    def destroy 
+        @review = Review.find_by_id(params[:id])
+        if is_logged_in? 
+          @review = current_client.reviews.find_by_id(params[:id])
+          if @review
+            @review.destroy
+            flash[:message] = "Your review was deleted."
+            redirect_to reviews_path(current_client)  
+          else
+            flash[:message] = "Unable to delete this appointment since it doesn't belong to you."
+            redirect_to "/"
+          end
+        else
+          flash[:message] = "You need to be logged in first to access this page."
+          redirect_to "/login"
+        end
+    end
+
     private
 
     def review_params
-        params.require(:review).permit(:comment, :rating, :appointment_id)
+        params.require(:review).permit(:comment, :treatment_id, :appointment_id)
     end
 
     def set_review

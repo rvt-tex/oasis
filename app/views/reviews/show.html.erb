@@ -1,8 +1,15 @@
-<h2><%= @review.comment%> - <%= @review.client.client_name%></h2>
+
+show page
+<h3><%= @review.appointment.treatment.title %></h3>
+
+<h4><%= @review.comment%></h4>  <br> 
+<h6> by: <%= @review.client.first_name.capitalize%></h6>
 
 <% if @review.client == current_client %>
-  <%= link_to "Edit Review", edit_review_path(@review)%>
+  <%= link_to "Edit Review", edit_review_path(@review)%> |
+  <%= link_to "delete Review", @review, :method => "delete"%>
 <% end %>
 
-<h4>View the Appointment here: <%= link_to @review.appointment.treatment, appointment_path(@review.appointment_id) %></h4>
+
+
 														
